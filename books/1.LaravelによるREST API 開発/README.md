@@ -415,3 +415,23 @@ Route::get("tasks", \App\Http\Actions\TaskIndexAction::class."@handle");
              ->group(base_path('routes/api.php'));
     }
 ```
+
+## CORS の対応
+
+Laravel で 作成した REST API を CORS 対応させる場合、laravel-cors のライブラリを利用するのが便利です。
+
+https://github.com/barryvdh/laravel-cors
+
+laravel-cors を利用するには、 composer でモジュールをインストールします。
+Service Provider は Auto Discovery で自動認識されるため登録は不要です。 
+
+```
+$ composer require barryvdh/laravel-cors
+```
+
+API に CORS 対応を入れる場合、ミドルウェアとして `\Barryvdh\Cors\HandleCors::class` を登録します。
+
+
+
+
+
