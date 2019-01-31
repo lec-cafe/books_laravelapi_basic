@@ -1,6 +1,5 @@
 ---
 title: Laravelによる REST API 開発
-permalink: /LaravelによるREST_API開発
 ---
 
 # Laravelによる REST API 開発
