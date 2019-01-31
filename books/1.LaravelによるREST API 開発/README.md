@@ -431,7 +431,43 @@ $ composer require barryvdh/laravel-cors
 
 API に CORS 対応を入れる場合、ミドルウェアとして `\Barryvdh\Cors\HandleCors::class` を登録します。
 
+```php
+<?php
+Route::get('status', function () {
+    //
+})->middleware(\Barryvdh\Cors\HandleCors::class);
+```
 
+
+### CORS の設定
+
+CORS の詳細な設定を行う場合、 設定ファイルを利用して管理を行います。
+
+以下のコマンドを実行すると `config/cors.php` が生成され、 CORS の詳細な設定を行うことができるようになります。
+
+```
+$ php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider"
+```
+
+```
+return [
+     /*
+     |--------------------------------------------------------------------------
+     | Laravel CORS
+     |--------------------------------------------------------------------------
+     |
+     | allowedOrigins, allowedHeaders and allowedMethods can be set to array('*')
+     | to accept any value.
+     |
+     */
+    'supportsCredentials' => false,
+    'allowedOrigins' => ['*'],
+    'allowedHeaders' => ['Content-Type', 'X-Requested-With'],
+    'allowedMethods' => ['*'], // ex: ['GET', 'POST', 'PUT',  'DELETE']
+    'exposedHeaders' => [],
+    'maxAge' => 0,
+];
+```
 
 
 
