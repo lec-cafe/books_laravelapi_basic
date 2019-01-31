@@ -449,6 +449,8 @@ CORS の詳細な設定を行う場合、 設定ファイルを利用して管�
 $ php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider"
 ```
 
+生成される `config/cors.php` は以下のような形になります。
+
 ```
 return [
      /*
