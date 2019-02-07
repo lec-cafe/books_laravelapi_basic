@@ -220,7 +220,7 @@ Route::get("/profile",function(){
 ```php
 $token = request()->bearerToken();
 $user = \App\User::where("token",$token)->first();
-if ($user) {        
+if ($token && $user) {        
     // ...
 }else{
     abort(401);
