@@ -425,6 +425,8 @@ class Handler extends ExceptionHandler
  
 ハッシュデータを作成するには、 Hash クラスを使って `Hash::make($password)` のようにします。
 
+https://laravel.com/docs/5.7/hashing
+
 ### ユーザIDによるヘッダ認証の追加
 
 複数タブで認証付きアプリケーションを利用する際に、
