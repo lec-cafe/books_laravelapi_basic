@@ -38,3 +38,29 @@ Route::delete("/task/{id}",function($id){
     }
     return [];
 });
+
+Route::post("/auth/login",function(){
+    $email = request()->get("email");
+    $password = request()->get("password");
+
+    $user = \App\User::where("email",$email)->first();
+    if ($user && Hash::check($password, $user->password)) {
+        $token = str_random();
+        $user->token = $token;
+        $user->save();
+        return [
+            "token" => $token,
+            "user" => $user
+        ];
+    }else{
+        abort(403);
+    }
+});
+
+Route::get("/profile",function(){
+    $user = Auth::guard("api")->user();
+    return [
+        "user" => $user
+    ];
+})->middleware("auth:api");
+
