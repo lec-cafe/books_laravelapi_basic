@@ -199,7 +199,7 @@ Authorization: Bearer {YOUR_ACCESS_TOKEN}
 Route::get("/profile",function(){
     $token = request()->bearerToken();
     $user = \App\User::where("token",$token)->first();
-    if ($user) {        
+    if ($token && $user) {        
         return [
             "user" => $user
         ];
@@ -241,7 +241,7 @@ if 文の内部では取得したユーザ情報を基に、プロフィール�
 Route::post("/auth/logout",function(){
     $token = request()->bearerToken();
     $user = \App\User::where("token",$token)->first();
-    if ($user) {
+    if ($token && $user) {
         $user->token = null;
         $user->save();
         return [];
@@ -282,7 +282,11 @@ public function boot()
 
     Auth::viaRequest('custom-token', function ($request) {
         $token = request()->bearerToken();
-        return \App\User::where("token",$token)->first();
+        if($token){
+            return \App\User::where("token",$token)->first();        
+        }else{
+            return null;
+        }
     });
 }
 ```
@@ -407,11 +411,26 @@ class Handler extends ExceptionHandler
 
 ## Try more !
 
+### Multi Auth の設定
+
 認証用の処理は、複数定義することで、
 例えば ユーザ用の認証とスタッフ用の認証とを区分けすることができます。
 
 複数の種別の認証を処理できるよう、スタッフ用のテーブル `staffs` を作成し、
 ユーザ用の認証ルート、スタッフ用の認証ルートを個別に作成してみましょう。
 
- 
+### ユーザ登録APIの設定
 
+ユーザ登録用の API を作成して、 パスワードのハッシュ化と照合のフローを確認しておきましょう。
+ 
+ハッシュデータを作成するには、 Hash クラスを使って `Hash::make($password)` のようにします。
+
+### ユーザIDによるヘッダ認証の追加
+
+複数タブで認証付きアプリケーションを利用する際に、
+タブをまたいでログインを変更していた際に、意図しないユーザ情報でAPIを送信してしまうケースがあります。
+
+一部のアプリケーションでは、これを防ぐために、ヘッダに ユーザIDやメールアドレスを追加で送信して、
+ご操作を防ぐフローが取られています。
+
+独自のリクエストヘッダ `X-USER-ID` などを利用して token + α の認証を追加できるように修正してみましょう。
