@@ -555,13 +555,13 @@ interface TaskRepositoryInterface
 <?php
 namespace App\Http\Actions;
 
-use GuzzleHttp\Promise\TaskQueueInterface;
+use App\Repository\TaskRepositoryInterface;
 
 class TaskListAction
 {
     protected $repo;
 
-    public function __construct(TaskQueueInterface $repo)
+    public function __construct(TaskRepositoryInterface $repo)
     {
         $this->repo = $repo;
     }
