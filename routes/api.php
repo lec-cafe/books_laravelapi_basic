@@ -64,3 +64,5 @@ Route::get("/profile",function(){
     ];
 })->middleware("auth:api");
 
+Route::get("/task/list",\App\Http\Actions\TaskListAction::class."@handle");
+

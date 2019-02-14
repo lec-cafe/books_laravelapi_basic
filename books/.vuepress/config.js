@@ -29,6 +29,7 @@ module.exports = {
         sidebar: [
             '/1.LaravelによるREST API 開発/',
             '/2.RESTAPIにおける認証/',
+            '/3.Laravel における DI/',
             '/9.1Telescope を使ったデバッガの導入/',
             '/9.2 Factory を使ったテストデータの生成/',
             // '/2.レスポンシブデザイン',
