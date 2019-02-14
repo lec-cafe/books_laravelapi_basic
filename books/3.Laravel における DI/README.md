@@ -1,5 +1,5 @@
 ---
-title: Laravel における認証
+title: Laravel におけるDI
 ---
 
 # Laravel における DI
