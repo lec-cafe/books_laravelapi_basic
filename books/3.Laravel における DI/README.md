@@ -47,7 +47,7 @@ class TaskListAction
 
 このルートを有効に動作させるためには、
 まず `app/Providers/RouteServiceProvider.php` で 
-`mapApiERoutes` のデフォルトの名前空間を無効化します。
+`mapApiRoutes` のデフォルトの名前空間を無効化します。
 
 ```php
 protected function mapApiRoutes()
@@ -298,7 +298,7 @@ Carbon で表現されている 日付情報がそのまま内部のデータを
 ValueObject のような単純な JSON 形式のデータを整形するには、
 以下の様に ValueObject に対し `JsonSerializable` インターフェイスを実装します。
 
-```
+```php
 <?php
 namespace App\ValueObject;
 
@@ -466,7 +466,7 @@ DI コンテナは Laravel のコードであれば `app()` 関数を利用し�
 
 DI を利用しない場合でも以下のような形式で、DI コンテナからオブジェクトを簡単に取り出すことができます。
 
-```
+```php
 $request = app(\Illuminate\Http\Request::class);
 
 $repository = app(\App\Repository\TaskRepository::class);
@@ -633,9 +633,7 @@ DI コンテナによる依存解決は インターフェイス名 ` ` で検�
 `app/Providers/AppServiceProvider.php` を利用して以下のように記述しましょう。
  
 ```php
-
 <?php
-
 namespace App\Providers;
 
 use App\Repository\TaskRepository;
