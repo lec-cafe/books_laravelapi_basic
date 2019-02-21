@@ -123,7 +123,7 @@ testsuite 要素に `name` を付与することで、 testsuite の単位でテ
 
 PHPUnit の準備が整ったところで実際にテストを記述していきましょう。
 
-`tests/Feature/TasAPITest.php` を作成して、以下のような形でテストのコードを記述します。
+`tests/Feature/TaskAPITest.php` を作成して、以下のような形でテストのコードを記述します。
 
 ```php
 <?php
