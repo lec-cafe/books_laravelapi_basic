@@ -235,8 +235,8 @@ Laravel では ルートの処理内で、return 文を用いて 配列を返し
 <?php
 Route::get("status", function(){
     return [
-      "status" => "OK"
-      "message" => "no issues with systemn"
+      "status" => "OK",
+      "message" => "no issues with system",
     ];
 });
 ```
