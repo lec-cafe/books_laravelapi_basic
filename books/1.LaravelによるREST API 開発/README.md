@@ -57,7 +57,27 @@ public function down(){
 }
 ```
 
-マイグレーションの準備ができたらmigrateコマンドを実行して完了です。
+マイグレーションの準備ができたらDBの設定を行いましょう。
+SQLiteを使用する場合、以下のコマンドでSQLiteファイルを作成します。
+ 
+
+```bash
+$ touch database/database.sqlite
+```
+ 
+次に `.env` ファイルを以下のように書き換えます。
+
+```.dotenv
+DB_CONNECTION=sqlite
+#DB_HOST=127.0.0.1
+#DB_PORT=3306
+#DB_DATABASE=homestead
+#DB_USERNAME=homestead
+#DB_PASSWORD=secret
+```
+
+以上でDBの設定とマイグレーションの準備が整いました。
+最後にmigrateコマンドを実行して完了です。
 
 ```bash
 $ php artisan migrate
