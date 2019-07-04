@@ -24,5 +24,9 @@
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "vuepress": "^1.0.0-alpha.35"
+    },
+    "dependencies": {
+        "json-refs": "^3.0.12",
+        "swagger-ui-dist": "^3.20.8"
     }
 }

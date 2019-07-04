@@ -27,7 +27,8 @@ module.exports = {
             { text: 'Lec Café', link: 'https://leccafe.connpass.com/' },
         ],
         sidebar: [
-            '/1.LaravelによるREST API 開発/',
+            '/1.0.LaravelによるREST API 開発/',
+            '/1.5.タスクリストAPIの作成/',
             '/2.RESTAPIにおける認証/',
             '/3.Laravel における DI/',
             '/4.REST API のテスト/',
