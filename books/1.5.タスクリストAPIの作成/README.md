@@ -1,8 +1,8 @@
 ---
-title: Laravelによる REST API 開発
+title: タスクリストAPIの開発
 ---
 
-# Laravelによる REST API 開発
+# タスクリストAPIの開発
 
 REST API は HTTP 通信を利用してデータの受け渡しを実現するためのシンプルなWebシステムの形です。
 
@@ -203,10 +203,24 @@ REST API の Request データは JSON 形式で、例えば以下のように�
 }
 ```
 
-### タスクを削除するAPI
+### タスクを更新・削除するAPI
 
 通常 Webページを利用するシステムでは GET / POST の HTTP メソドがよく用いられますが、
 REST API では PATCH / PUT / DELETE などの API も利用することが可能です。
+
+タスクを更新する場合には PATCH メソドを利用して、以下のように記述します。
+
+```php
+<?php
+Route::patch("/task/{id}",function($id){
+    $task = \App\Task::find($id);
+    if($task){
+        $task->name = request()->get("name");
+        $task->save();
+    }    
+    return [];
+});
+```
 
 タスクを削除する場合には DELETE メソドを利用して、以下のように記述します。
 
