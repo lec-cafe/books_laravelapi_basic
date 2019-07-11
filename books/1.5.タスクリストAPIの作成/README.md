@@ -30,6 +30,30 @@ REST API は Request と Response でその形式を設計します。
 上記の API を作成するために、まずはテーブルを作成してテストデータを作成し、
 開発の準備を整えましょう。
 
+### データベースの準備
+
+DB を利用したアプリケーションを作成するために、
+まずは、Laravel における Database の設定を行いましょう。
+
+Laravel では 様々な Database が利用可能で、接続の設定は `.env` ファイルから行うようになっています。
+
+例えば sqlite で Laravel に接続する場合、`.env` ファイルを以下のように書き換えます。
+
+```.dotenv
+DB_CONNECTION=sqlite
+#DB_HOST=127.0.0.1
+#DB_PORT=3306
+#DB_DATABASE=homestead
+#DB_USERNAME=homestead
+#DB_PASSWORD=secret
+```
+
+sqlite を使用するために `database/database.sqlite` を作成しておきましょう。
+
+```bash
+$ touch database/database.sqlite
+```
+
 ### テーブルの作成
 
 まずはテーブルを作成しましょう。
@@ -57,30 +81,20 @@ public function down(){
 }
 ```
 
-マイグレーションの準備ができたらDBの設定を行いましょう。
-SQLiteを使用する場合、以下のコマンドでSQLiteファイルを作成します。
- 
-
-```bash
-$ touch database/database.sqlite
-```
- 
-次に `.env` ファイルを以下のように書き換えます。
-
-```.dotenv
-DB_CONNECTION=sqlite
-#DB_HOST=127.0.0.1
-#DB_PORT=3306
-#DB_DATABASE=homestead
-#DB_USERNAME=homestead
-#DB_PASSWORD=secret
-```
-
 以上でDBの設定とマイグレーションの準備が整いました。
 最後にmigrateコマンドを実行して完了です。
 
 ```bash
 $ php artisan migrate
+```
+
+`migrate` コマンドは Database にテーブルを作成するためのコマンドで、
+実行された順番を記録して、次回新しくマイグレーションのファイルを追加した際に続きからの実行を行ってくれます。
+
+既存のマイグレーションファイルを編集した際など、マイグレーションを最初から実行し直したいときは `migrate:fresh` コマンドを実行します。
+
+```bash
+$ php artisan migrate:fresh
 ```
 
 ### Eloquent の準備
