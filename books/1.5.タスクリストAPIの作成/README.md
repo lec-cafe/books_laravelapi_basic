@@ -188,6 +188,16 @@ Route::get("/tasks",function(){
 });
 ```
 
+```php
+<?php
+Route::get("/task/{id}",function($id){
+    return [
+        "status" => "OK",
+        "tasks" => \App\Task::where("id",$id)->first(),
+    ];
+});
+```
+
 ### タスクを追加するAPI
 
 タスクを追加するAPIは、以下のようなかたちで POST の API として定義します。
@@ -247,6 +257,58 @@ Route::delete("/task/{id}",function($id){
     }    
     return [];
 });
+```
+
+## API Resource
+
+API Resource は API で Database の値を表現する際に便利なクラスです。
+
+今回作成した API では、タスクのIDや作成日などDBの全ての列の項目がそのまま表示されて、
+ときにはこれらの値を隠したいケースも多いでしょう。
+
+API Resource はそういった Response での データの表示方法を整えるための機能です。
+
+API Resource のクラスを作成する場合は以下のように `make:resource` コマンドを利用する事が可能です。
+
+```
+$ php artisan make:resource Task
+```
+
+`app/Http/Resources/Task.php` が作成されるので実際に中身を確認してみましょう。
+
+```php
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class Task extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return parent::toArray($request);
+    }
+}
+```
+
+APIにおける タスクの見え方を調整するには toArray メソドを編集します。
+
+例えば API のレスポンスに `name` のみを表示させる場合以下のように記述します。
+
+```php
+public function toArray($request)
+{
+    return [
+        "name" => $this->name
+    ];
+}
 ```
 
 ## REST API の外部設計
