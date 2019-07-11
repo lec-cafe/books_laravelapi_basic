@@ -188,12 +188,28 @@ Route::get("/tasks",function(){
 });
 ```
 
+他にもデータベースからデータを検索する際には、 where メソドを利用する事ができます。
+
+検索結果からデータをひとつだけ取得する場合は `first()` でデータを取得します。
+
 ```php
 <?php
 Route::get("/task/{id}",function($id){
     return [
         "status" => "OK",
-        "tasks" => \App\Task::where("id",$id)->first(),
+        "task" => \App\Task::where("id",$id)->first(),
+    ];
+});
+```
+
+検索結果からデータを複数取得する場合は `get()` でデータを取得します。
+
+```php
+<?php
+Route::get("/task/{id}",function($id){
+    return [
+        "status" => "OK",
+        "tasks" => \App\Task::where("id",">",3)->get(),
     ];
 });
 ```
