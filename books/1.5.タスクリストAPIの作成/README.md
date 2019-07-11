@@ -97,6 +97,12 @@ $ php artisan migrate
 $ php artisan migrate:fresh
 ```
 
+migration のより詳しい使い方は、
+
+https://laravel.com/docs/5.8/migrations
+
+を参考にしてください。
+
 ### Eloquent の準備
 
 タスクを投入するための、Eloquent Model を作成しましょう。
@@ -275,6 +281,10 @@ Route::delete("/task/{id}",function($id){
 });
 ```
 
+Eloquent のより詳しい使い方は以下を参考にしてください。
+
+https://laravel.com/docs/5.8/eloquent
+
 ## API Resource
 
 API Resource は API で Database の値を表現する際に便利なクラスです。
@@ -326,6 +336,33 @@ public function toArray($request)
     ];
 }
 ```
+
+作成した API Resource は以下のような形で利用します。
+
+```php
+<?php
+Route::get("/task/{id}",function($id){
+    $task = \App\Task::where("id",$id)->first();
+    return [
+        "status" => "OK",
+        "task" => new App\Http\Resources\Task($task),
+    ];
+});
+```
+
+扱うデータが複数の場合は、 collection を利用する事ができます。
+
+```php
+<?php
+Route::get("/tasks",function(){
+    $tasks = \App\Task::all();
+    return [
+        "status" => "OK",
+        "tasks" => App\Http\Resources\Task::collection($tasks),
+    ];
+});
+```
+
 
 ## REST API の外部設計
 
