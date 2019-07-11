@@ -206,7 +206,7 @@ Route::get("/task/{id}",function($id){
 
 ```php
 <?php
-Route::get("/task/{id}",function($id){
+Route::get("/tasks/",function(){
     return [
         "status" => "OK",
         "tasks" => \App\Task::where("id",">",3)->get(),
