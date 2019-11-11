@@ -36,6 +36,6 @@ SPA アプリケーションなどで活用可能な REST API を構築してみ
 ## Ref 
 
 
-*lec-cafe/lec-cafe*
+**lec-cafe/lec-cafe**
 
 https://github.com/lec-cafe/lec-cafe
