@@ -75,6 +75,12 @@ folders:
 上記のような設定の場合、 vagrant 内の `/home/vagrant/code` と ローカルの `~/code` フォルダとが同期され、
 同じ内容のファイルが展開されるようになります。
 
+ファイルを同期するために以下のコマンドで、同期用のフォルダを作成しておきましょう。
+
+```bash
+$ mkdir ~/code
+```
+
 ## Vagrant の設定
 
 Vagrant 仮想環境を立ち上げるには、`Vagrantfile` のあるフォルダで、`vagrant up` コマンドを実行します。
@@ -92,6 +98,11 @@ $ vagrant ssh
 ::: tip
 `vagrant ssh` で鍵関連のエラーが出る場合は、
 `ssh-keygen -t rsa` コマンドを実行して鍵ファイルの作成を行ってください。
+:::
+
+::: tip
+ssh でログインすると コンソールの表示が `vagrant@` に切り替わります。
+vagrant から抜けるには `exit` コマンドを実行します。
 :::
 
 
