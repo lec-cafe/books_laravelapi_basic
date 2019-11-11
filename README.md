@@ -4,6 +4,20 @@
 
 https://laravelapi-basic.lec.cafe/
 
+## Usage
+
+install dependency
+
+```bash
+$ yarn
+```
+
+launch local server
+
+```bash
+$ yarn run docs:dev
+```
+
 ## Contents
 
 Laravel を 利用してREST API を作成するフローを紹介します。
