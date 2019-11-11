@@ -123,7 +123,7 @@ $ cd code
 $ laravel new 
 ```
 
-最後にブラウザで `http://homestead.test` にアクセスして Laravel の初期画面が表示されたらセットアップは完了です。
+最後にブラウザで `http://homestead.test` または `http://192.168.10.10/` にアクセスして Laravel の初期画面が表示されたらセットアップは完了です。
 
 ### ローカルのデータベースに接続する
 
