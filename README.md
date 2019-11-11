@@ -1,104 +1,21 @@
-## 構成
+## Laravel REST API 開発 入門
 
-### 1. Laravel で タスクリスト APIを作る
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65e21c31-069f-4d86-9a58-00d48df0b898/deploy-status)](https://app.netlify.com/sites/books-laravelapi-basic/deploys)
 
-- 作成するAPI 概要
-- データベースのセットアップ
-- タスク追加 API の作成
-- タスク一覧取得 API の作成 
-- タスク更新 API の作成
-- タスク削除 API の作成
+https://laravelapi-basic.lec.cafe/
 
-### 2. REST API の設計
+## Contents
 
-- ルートの設計
-- ヘッダの設計
-- レスポンスの設計
+Laravel を 利用してREST API を作成するフローを紹介します。
 
-::: tip
-`routes/api.php` に記述した API 定義のURLには自動的に `/api` のプレフィックスが付与されます。
-この挙動は、後述する REST APIの設定 にて変更する事が可能です。 
-:::
+Laravel ならではの Database 操作や ルートの記述などを利用して
+SPA アプリケーションなどで活用可能な REST API を構築してみましょう。
 
+## こんな方におすすめ
 
-タスクを更新する場合には PATCH メソドを利用して、以下のように記述します。
+資料は全てサンプルコード付きで紹介しますので、初心者の方も安心してご参加いただけます。
 
-```php
-<?php
-Route::patch("/task/{id}",function($id){
-    $task = \App\Task::find($id);
-    if($task){
-        $task->name = request()->get("name");
-        $task->save();
-    }    
-    return [];
-});
-```
+- Laravel を使った REST API開発の仕組みを体験したい方
+- REST API の開発をよりシンプルに進めたい方
+- REST API の開発フローを効率的に改善したい方
 
-
-
-
-タスクを削除する場合には DELETE メソドを利用して、以下のように記述します。
-
-```php
-<?php
-Route::delete("/task/{id}",function($id){
-    $task = \App\Task::find($id);
-    if($task){
-        $task->delete();
-    }    
-    return [];
-});
-```
-
-
-### 3. Eloquent を用いたデータベース操作
-
-- テーブルの作成
-- Eloquent の作成
-- レコードの取得
-- レコードの検索
-- レコードの作成
-- レコードの更新
-- レコードの削除
-
-他にもデータベースからデータを検索する際には、 where メソドを利用する事ができます。
-
-検索結果からデータをひとつだけ取得する場合は `first()` でデータを取得します。
-
-```php
-<?php
-Route::get("/task/{id}",function($id){
-    return [
-        "status" => "OK",
-        "task" => \App\Task::where("id",$id)->first(),
-    ];
-});
-```
-
-検索結果からデータを複数取得する場合は `get()` でデータを取得します。
-
-```php
-<?php
-Route::get("/tasks/",function(){
-    return [
-        "status" => "OK",
-        "tasks" => \App\Task::where("id",">",3)->get(),
-    ];
-});
-```
-
-### 4. PHPUnit を用いた ユニットテスト
-
-- ユニットテストの作成
-
-### 5. Telescope を用いたデバッグ
-
-- telescope のインストール
-- 
-
-### 9
-
-- 環境構築(Vagrant)
-- 環境構築(Mac)
-- バリデーション

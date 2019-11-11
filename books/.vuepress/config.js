@@ -1,5 +1,5 @@
 module.exports = {
-    title: '実践 Laravel REST API 開発',
+    title: 'Laravel REST API 開発 入門',
     description: 'HTML/CSS を使った Web 制作技術について、現場で使えるテクニックを紹介します。',
     head: [
         ['script', { src: "https://static.codepen.io/assets/embed/ei.js"}]
