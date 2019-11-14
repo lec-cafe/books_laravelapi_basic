@@ -62,7 +62,7 @@ URL の内部で `{ }` を指定すると、任意の文字にマッチするよ
 Route::patch("/task/{id}",function($id){
     $task = \App\Task::find($id);
     if($task){
-        $task->name = request()->get("name");
+        $task->name = request()->input("name");
         $task->save();
     }    
     return [];
