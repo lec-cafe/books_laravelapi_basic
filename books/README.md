@@ -1,13 +1,13 @@
 ---
-title: 実践 Laravel REST API 開発
+title: Laravel REST API 開発 入門
 ---
-# 実践 Laravel REST API 開発
+# Laravel REST API 開発 入門
 
 ![](/images/leccafe.png)
 
 ## Contents
 
-Laravel を 利用してREST API を作成するフローを紹介します。
+Laravel を 利用してREST API を作成するための 入門講座です。
 
 Laravel ならではの Database 操作や ルートの記述などを利用して
 SPA アプリケーションなどで活用可能な REST API を構築してみましょう。
