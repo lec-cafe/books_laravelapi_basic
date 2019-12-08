@@ -11,6 +11,7 @@ https://laravelapi-basic.lec.cafe/
 - [x] 3.REST API の設計
 - [x] 4.REST API のテスト
 - [x] 5.REST API のデバッグ
+- [ ] 9.Validation の利用
 - [ ] 9.Guzzle 入門
 - [ ] 9.Elouent 入門
 - [ ] 9.テーブルの migration
