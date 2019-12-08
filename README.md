@@ -4,6 +4,17 @@
 
 https://laravelapi-basic.lec.cafe/
 
+## 構成
+
+- [x] 1.タスクリストAPIの作成
+- [x] 2.Eloquent による DB 操作
+- [x] 3.REST API の設計
+- [x] 4.REST API のテスト
+- [x] 5.REST API のデバッグ
+- [ ] 9.Guzzle 入門
+- [x] 9.環境構築 Mac
+- [x] 9.環境構築 Vagrant
+
 ## Usage
 
 install dependency
