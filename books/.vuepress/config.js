@@ -41,7 +41,7 @@ module.exports = {
             ]
           },
         ],
-        repo: 'lec-cafe/book_laravel_api',
+        repo: 'lec-cafe/books_laravelapi_basic',
         repoLabel: 'Github',
         docsDir: 'books',
         editLinks: true,
