@@ -13,7 +13,7 @@ REST API でのデバッグ実行には、`var_dump` や `dd` のような画面
 
 最もシンプルな方法は ログを利用したデバッグです。
 
-以下のように記述して、ログファイルにメッセージを出力することができます。
+以下のように`routes/api.php`に記述することで、ログファイルにメッセージを出力することができます。
 
 ```php
 Log::debug('An informational message.');
@@ -63,6 +63,15 @@ $ php artisan migrate
 また config/app.php にも ServiceProvider の追加が行われます。
 
 以後の telescope バージョンアップ等の更新に対応する際には、`php artisan telescope:publish` を利用することができます。
+
+
+::: tip
+Telescope を導入している環境では、`ReflectionException: Class env does not exist`
+のエラーが表示されるかも知れません。
+これは[既知の障害](https://github.com/laravel/telescope/issues/347)に起因するもののため、
+`<env name="TELESCOPE_ENABLED" value="false"/>` を追加して、テスト中のTelescopeを無効化するよう調整が必要です。
+:::
+
 
 ### Telescope の利用
 
