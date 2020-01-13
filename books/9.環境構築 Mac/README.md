@@ -47,6 +47,11 @@ export PATH=/usr/local/php5/bin:$PATH
 $ php -v
 ```
 
+::: tip
+phpの設定がうまく行かない場合は、 `echo $SHELL` の出力結果を元に、
+現在使っているシェルのタイプを確認して、エラーを伝えてください。
+:::
+
 ## Composer 環境の構築
 
 Composer は PHP の依存解決ツールです。 Composer を利用することで、
