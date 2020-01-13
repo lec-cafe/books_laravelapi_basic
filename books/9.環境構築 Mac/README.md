@@ -43,6 +43,10 @@ export PATH=/usr/local/php5/bin:$PATH
 この状態で新しいターミナルを開き `php -v` でバージョンを確認して、
 希望するバージョンに変更されていれば作業は完了です。
 
+```bash
+$ php -v
+```
+
 ## Composer 環境の構築
 
 Composer は PHP の依存解決ツールです。 Composer を利用することで、
@@ -124,3 +128,21 @@ $ php artisan serve
 ```
 
 ブラウザで `http://localhost:8000` にアクセスしてLaravel の初期画面が表示されたらセットアップは完了です。
+
+## Postgres 環境の構築
+
+Mac で Poststres 環境を構築する場合、
+サーバアプリの Postgres.app を利用するのが便利です。
+
+https://postgresapp.com/
+
+インストールするとローカル環境に Postgres サーバが立ち上がります。
+
+Postgres 環境の接続には Postico というクライアントアプリがありますのでこちらをご利用ください。
+
+https://eggerapps.at/postico/
+
+::: tips 
+データベースサーバに接続するためのアプリがクライアントアプリで、
+データベースサーバを構築するためのアプリがサーバアプリです。
+:::
