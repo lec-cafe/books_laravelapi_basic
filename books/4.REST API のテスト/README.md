@@ -72,12 +72,6 @@ OK (2 tests, 2 assertions)
 </phpunit>
 ```
 
-::: tip
-Telescope を導入している環境では、`ReflectionException: Class env does not exist`
-のエラーが表示されるかも知れません。
-これは[既知の障害](https://github.com/laravel/telescope/issues/347)に起因するもののため、
-`<env name="TELESCOPE_ENABLED" value="false"/>` を追加して、テスト中のTelescopeを無効化するよう調整が必要です。
-:::
 
 ### テストコードのフォルダ
 
