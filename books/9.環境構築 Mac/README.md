@@ -34,7 +34,7 @@ $ curl -s https://php-osx.liip.ch/install.sh | bash -s 7.2
 インストータした PHP は Mac 本体にもとより搭載されている PHP とは別に、
 `/usr/local/php5/bin/php` に展開されます。
 
-この PHP をデフォルトに設定するには `~/.profile` に、以下の一行を追加してみてましょう。
+この PHP をデフォルトに設定するには `~/.zprofile` に、以下の一行を追加してみてましょう。
 
 ```text
 export PATH=/usr/local/php5/bin:$PATH
@@ -48,8 +48,13 @@ $ php -v
 ```
 
 ::: tip
-phpの設定がうまく行かない場合は、 `echo $SHELL` の出力結果を元に、
-現在使っているシェルのタイプを確認して、エラーを伝えてください。
+`echo $SHELL` の出力結果が `/bin/bash` となる古い Mac 環境では、
+`~/.zprofile` ではなく `~/.profile` を利用します。
+:::
+
+::: danger
+profile の書き換えを誤ると、最悪 PC にログイン不能になります。
+操作手順に不安がある方は、経験のある方とペアで作業を行ってください。
 :::
 
 ## Composer 環境の構築
