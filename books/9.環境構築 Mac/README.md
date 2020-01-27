@@ -34,7 +34,7 @@ $ curl -s https://php-osx.liip.ch/install.sh | bash -s 7.2
 インストールした PHP は Mac 本体にもとより搭載されている PHP とは別に、
 `/usr/local/php5/bin/php` に展開されます。
 
-この PHP をデフォルトに設定するには `~/.zprofile` に、以下の一行を追加してみてましょう。
+この PHP をデフォルトに設定するにはviでファイル指定して `~/.zprofile` に、以下の一行を追加してみてましょう。
 
 ```text
 export PATH=/usr/local/php5/bin:$PATH
@@ -81,7 +81,7 @@ $ composer --version
 ```
 
 Composer 経由でインストールされたコマンドを実行可能にするため、`~/.profile` などに、
-`~/.composer/vendor/bin` のパスを通しておきましょう。
+viでファイル指定して`~/.composer/vendor/bin` のパスを通しておきましょう。
 
 ```text
 export PATH=$PATH:$HOME/.composer/vendor/bin
@@ -111,7 +111,8 @@ $ laravel new blog
 ローカル Mac 環境で Laravel を利用する場合、SQLite データベースを利用するのが便利です。
 
 `DB_CONNECTION=sqlite` の設定で SQLite データベースが利用可能となっており、
-`.env` ファイルでの設定は以下のようになります。
+先ほどlaravel newで作ったblogの`.env` ファイルでの設定は以下のようになります。
+違うDBの場合は書き変えてください。
 
 ```bash
 DB_CONNECTION=sqlite
@@ -122,7 +123,7 @@ DB_CONNECTION=sqlite
 #DB_PASSWORD=secret
 ```
 
-SQLite データベースはを使用するために `database/database.sqlite` を作成しておきましょう。
+SQLite データベースはを使用するために `database/database.sqlite` をblogの中に作成しておきましょう。
 
 ```bash
 $ touch database/database.sqlite
