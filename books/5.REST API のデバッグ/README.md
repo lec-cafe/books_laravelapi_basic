@@ -43,7 +43,7 @@ telescope を利用することでログだけではない、様々なAPIの情�
 telescope を利用するには、関連モジュールを composer 経由でインストールします。
 
 ```
-$ composer require laravel/telescope --dev
+$ composer require laravel/telescope
 ```
 
 インストールが完了したら、`telescope:install` の artisan コマンドを実行して関連ファイルを作成します。 
